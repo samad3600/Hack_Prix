@@ -14,7 +14,9 @@ import speedtest
 import os
 import wikipedia
 import translate
+from flask import Flask, render_template, request, jsonify
 
+app = Flask(__name__)
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -26,9 +28,16 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/execute', methods=['POST'])
+def execute():
+    query = request.json.get('query').lower()
 
 for i in range(3):
-    user_pw = input("Enter Password to open Jarvis :- ")
+    user_pw = input("Enter Password to open Sapphire :- ")
     pw_file = open("password.txt", "r")
     stored_pw = pw_file.read()
     pw_file.close()
@@ -44,8 +53,6 @@ for i in range(3):
     elif user_pw != stored_pw:
         print("Try Again")
 
-from INTRO import play_gif
-play_gif
 
 def takeCommand():
     r = sr.Recognizer()
