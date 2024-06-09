@@ -190,13 +190,13 @@ if __name__ == "__main__":
                 elif "translate" in query:
                     from trans import translategl
 
-                    query = query.replace("jarvis", "")
+                    query = query.replace("Sapphire", "")
                     query = query.replace("translate", "")
                     translategl(query)
 
                 elif "open" in query:
                     query = query.replace("open", "")
-                    query = query.replace("jarvis", "")
+                    query = query.replace("Sapphire", "")
                     pyautogui.press("super")
                     pyautogui.typewrite(query)
                     pyautogui.sleep(2)
@@ -360,7 +360,7 @@ if __name__ == "__main__":
                     from calci import Calc
 
                     query = query.replace("calculate", "")
-                    query = query.replace("jarvis", "")
+                    query = query.replace("Sepphire", "")
                     Calc(query)
 
                 elif "whatsapp" in query:
@@ -392,8 +392,8 @@ if __name__ == "__main__":
                     speak("Going to sleep, sir")
                     exit()
 
-                elif "remember that" in query:
-                    reminder = query.replace("remember that", "").replace("jarvis", "").strip()
+                elif "remember" in query:
+                    reminder = query.replace("remember that", "").replace("sepphier", "").strip()
                     remember(reminder)
                     print("I'll remember that you need to", reminder)
 
